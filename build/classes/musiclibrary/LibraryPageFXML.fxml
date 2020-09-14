@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="anchorPaneLibrary" fx:id="anchorPaneLibrary" prefHeight="700" prefWidth="1350" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="musiclibrary.LibraryPageFXMLController">
+   <children>
+      <TabPane fx:id="tab" layoutX="378" layoutY="10.0" prefHeight="712.5" prefWidth="958.5" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="homeButton" text="Home">
+            <content>
+              <AnchorPane fx:id="homeTab" minHeight="0.0" minWidth="0.0" opacity="0.35" />
+            </content>
+          </Tab>
+          <Tab fx:id="libraryButton" text="Library">
+            <content>
+              <AnchorPane fx:id="libraryTab" minHeight="0.0" minWidth="0.0" />
+            </content>
+          </Tab>
+          <Tab fx:id="playlistsButton" text="Playlists">
+              <content>
+                  <AnchorPane fx:id="playlistTab" minHeight="0.0" minWidth="0.0" />
+              </content>
+          </Tab>
+          <Tab fx:id="settingsButton" text="Settings">
+              <content>
+                  <AnchorPane fx:id="settingsTab" minHeight="0.0" minWidth="0.0" />
+              </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <BorderPane id="playlistPanel" fx:id="playlistPanel" layoutX="14.0" layoutY="10" prefHeight="637.5" prefWidth="350">
+         <bottom>
+            <ListView fx:id="playlistView" editable="true" layoutX="14.0" layoutY="30" prefHeight="637.5" prefWidth="350" stylesheets="@CSS/listViewCSS.css" BorderPane.alignment="CENTER">
+                <padding>
+                    <Insets top="10.0" />
+                </padding>
+            </ListView>
+         </bottom>
+         <top>
+            <Label fx:id="playlistLabel" alignment="TOP_LEFT" text="Playlist" BorderPane.alignment="TOP_LEFT">
+                <padding>
+                    <Insets left="5.0" />
+                </padding>
+               <font>
+                  <Font name="SketchFlow Print" size="42.0" />
+               </font>
+            </Label>
+         </top>
+      </BorderPane>
+      <BorderPane id="artistWikiPanel" fx:id="artistWikiPanel" layoutX="14.0" layoutY="10">
+          <top>
+              <Label fx:id="artistWikiLabel" alignment="TOP_LEFT" text="Artist Wiki" layoutX="10.0" layoutY="10.0" BorderPane.alignment="TOP_LEFT">
+                <padding>
+                    <Insets left="5.0" />
+                </padding>
+               <font>
+                  <Font name="SketchFlow Print" size="42.0" />
+               </font>
+            </Label>
+          </top>
+          <center>
+            <ScrollPane fx:id="artistWikiPane" stylesheets="@CSS/ScrollPane.css" hbarPolicy="NEVER" vbarPolicy="NEVER" BorderPane.alignment="TOP_LEFT">
+                <Label fx:id="artistWikiDescription" text="" wrapText="true" alignment="TOP_LEFT">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </Label>
+            </ScrollPane> 
+          </center> 
+      </BorderPane>
+      <Button fx:id="logoutButton" text="Logout" onKeyPressed="#logoutPressed" onMouseClicked="#logoutClicked">
+          <font>
+              <Font name="SketchFlow Print" />
+          </font>
+      </Button>
+      <AnchorPane fx:id="homePane" layoutX="378.0" layoutY="50.0" opacity="1" prefHeight="649.0" prefWidth="959.0" style="-fx-background-color: transparent;">
+         <children>
+            <Label fx:id="welcomeLabel" layoutX="50.0" layoutY="57.0" wrapText="true">
+               <font>
+                  <Font name="SketchFlow Print" size="64.0" />
+               </font>
+            </Label>
+            <Label fx:id="dateofbirthLabel" layoutX="50.0" layoutY="100.0" wrapText="true">
+               <font>
+                  <Font name="SketchFlow Print" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="countryLabel" layoutX="60.0" layoutY="110.0" wrapText="true">
+               <font>
+                  <Font name="SketchFlow Print" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="aboutLabel" layoutX="70.0" layoutY="120.0" wrapText="true">
+               <font>
+                  <Font name="SketchFlow Print" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="sexLabel" layoutX="80.0" layoutY="130.0" wrapText="true">
+               <font>
+                  <Font name="SketchFlow Print" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="libraryPane" layoutX="378.0" layoutY="50.0" opacity="1" prefHeight="649.0" prefWidth="959.0" style="-fx-background-color: transparent;">
+         <children>
+            <Label fx:id="artistAlbumLabel" text="Albums:" wrapText="true">
+               <font>
+                  <Font name="SketchFlow Print" size="24.0" />
+               </font>
+            </Label>
+            <ListView fx:id="artistListView" editable="true" orientation="HORIZONTAL" prefHeight="123.0" prefWidth="699.0" stylesheets="@CSS/listViewCSS.css">
+               <padding>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </padding>
+            </ListView>
+            <ScrollPane fx:id="albumExpander" prefHeight="200.0" prefWidth="200.0">
+               
+            </ScrollPane>
+            <TextField fx:id="searchText" onKeyPressed="#searchTextPressed" onKeyReleased="#searchTextReleased" promptText="Enter Song Name">
+               <font>
+                  <Font name="SketchFlow Print" size="24.0" />
+               </font>
+            </TextField>
+            <Button fx:id="searchButton" mnemonicParsing="false" onKeyPressed="#searchPressed" onMouseClicked="#searchClicked" text="Search">
+               <font>
+                  <Font name="SketchFlow Print" size="24.0" />
+               </font>
+            </Button>
+            <Label fx:id="searchResultLabel" wrapText="true">
+               <font>
+                  <Font name="SketchFlow Print" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="recommendedSongLabel" text="Recommended Songs: " wrapText="true">
+               <font>
+                  <Font name="SketchFlow Print" size="30.0" />
+               </font>
+            </Label>
+            <ListView fx:id="recommendedSongListView" editable="true" orientation="VERTICAL" prefHeight="123.0" prefWidth="123.0" stylesheets="@CSS/listViewCSS.css">
+               <padding>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </padding>
+            </ListView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="playlistPane" layoutX="378.0" layoutY="50.0" opacity="1" prefHeight="649.0" prefWidth="959.0" style="-fx-background-color: transparent;">
+         <children>
+            <Label fx:id="savePlaylistLabel" text="Save Current Playlist As:">
+               <font>
+                  <Font name="SketchFlow Print" size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameLabel" text="Name:">
+               <font>
+                  <Font name="SketchFlow Print" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="saveButton" mnemonicParsing="false" text="Save" onMouseClicked="#saveClicked" onKeyPressed="#savePressed">
+               <font>
+                  <Font name="SketchFlow Print" size="14.0" />
+               </font>
+            </Button>
+            <TextField fx:id="nameText" onKeyPressed="#nameTextPressed" onKeyReleased="#nameTextReleased">
+               <font>
+                  <Font name="SketchFlow Print" size="14.0" />
+               </font>
+            </TextField>
+            <Label fx:id="nameTextLabel">
+                <font>
+                  <Font name="SketchFlow Print" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="loadPlaylistLabel" text="Load Playlist:">
+               <font>
+                  <Font name="SketchFlow Print" size="36.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="loadPlaylistCombo" prefWidth="150.0" promptText="Select Playlist" />
+            <Button fx:id="deleteButton" mnemonicParsing="false" text="Delete" onMouseClicked="#deleteClicked" onKeyPressed="#deletePressed">
+               <font>
+                  <Font name="SketchFlow Print" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="deletePlaylistLabel">
+                <font>
+                  <Font name="SketchFlow Print" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="settingsPane" layoutX="378.0" layoutY="50.0" opacity="1" prefHeight="649.0" prefWidth="959.0" style="-fx-background-color: transparent;">
+         <children>
+            <Label fx:id="changeSettingsLabel" text="Change Settings:">
+               <font>
+                  <Font name="SketchFlow Print" size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="changeNameLabel" text="Name">
+               <font>
+                  <Font name="SketchFlow Print" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="changeCountryLabel" text="Country">
+               <font>
+                  <Font name="SketchFlow Print" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="changeAboutLabel" text="About">
+               <font>
+                  <Font name="SketchFlow Print" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="changeThemeLabel" text="Theme">
+               <font>
+                  <Font name="SketchFlow Print" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="changePasswordLabel" text="New Password">
+               <font>
+                  <Font name="SketchFlow Print" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="currentPasswordLabel" text="Current Password">
+               <font>
+                  <Font name="SketchFlow Print" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="changeNameText">
+               <font>
+                  <Font name="SketchFlow Print" size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="changeCountryText">
+               <font>
+                  <Font name="SketchFlow Print" size="14.0" />
+               </font>
+            </TextField>
+            <TextArea fx:id="changeAboutText" prefHeight="200.0" prefWidth="200.0" wrapText="true">
+               <font>
+                  <Font name="SketchFlow Print" size="14.0" />
+               </font>
+            </TextArea>
+            <ComboBox fx:id="changeThemeCombo" prefWidth="150.0" promptText="Select Theme" />
+            <PasswordField fx:id="changePasswordText">
+               <font>
+                  <Font name="SketchFlow Print" size="14.0" />
+               </font>
+            </PasswordField>
+            <PasswordField fx:id="currentPasswordText">
+               <font>
+                  <Font name="SketchFlow Print" size="14.0" />
+               </font>
+            </PasswordField>
+            <Button fx:id="changeSubmitButton" onKeyPressed="#submitPressed" onMouseClicked="#submitClicked" text="Submit" />
+            <Label fx:id="settingsNotification">
+               <font>
+                  <Font name="SketchFlow Print" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="musicPlayerAnchorPane">
+          
+      </AnchorPane>
+   </children>
+</AnchorPane>

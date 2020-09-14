@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="anchorPaneMessage" fx:id="anchorPaneMessage" prefHeight="150.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="musiclibrary.MessageBoxFXMLController">
+   <children>
+      <Button fx:id="cancel" layoutX="143.0" layoutY="106.0" mnemonicParsing="false" onKeyPressed="#cancelPressed" onMouseClicked="#cancelClicked" prefHeight="30.0" prefWidth="71.0" text="Cancel">
+         <font>
+            <Font name="SketchFlow Print" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="message" alignment="CENTER" contentDisplay="CENTER" layoutX="21.0" layoutY="18.0" prefHeight="79.0" prefWidth="261.0" wrapText="true">
+         <font>
+            <Font name="SketchFlow Print" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="proceed" layoutX="219.0" layoutY="106.0" mnemonicParsing="false" onKeyPressed="#proceedPressed" onMouseClicked="#proceedClicked" text="OK">
+         <font>
+            <Font name="SketchFlow Print" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

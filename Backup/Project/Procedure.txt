@@ -1,0 +1,21 @@
+create or replace procedure fill_playlist(playlistid in number,userid in number,artistid in number,albumid in number,songid in number)
+is
+begin
+	insert into pcontainss values(playlistid,userid,artistid,albumid,songid);	
+end;
+/
+
+create or replace function deletePlaylist(pID in number,uID in number)
+return number
+is
+	modification number;
+begin
+	delete from playlist where playlistID=pID and userID=uID;
+
+	select count(playlistID) into modification from playlist where playlistID>pID;
+
+	update playlist set playlistID=playlistID-1 where userID=uID and playlistID>pID;
+
+	return modification;
+end;
+/

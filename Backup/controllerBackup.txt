@@ -1,0 +1,143 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package musiclibrary;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.sql.*;
+
+import javafx.event.*;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.geometry.*;
+import javafx.scene.control.*;
+import javafx.scene.image.*;
+import javafx.scene.input.*;
+import javafx.scene.layout.*;
+import javafx.scene.text.Font;
+import javafx.stage.Screen;
+import javafx.animation.*;
+import javafx.application.Platform;
+
+/**
+ * FXML Controller class
+ *
+ * @author ISHRAK-Ultra
+ */
+public class SignupPageFXMLController implements Initializable 
+{
+    private ReturnContainer returnContainer = new ReturnContainer();
+    
+    @FXML AnchorPane anchorPaneSignup;
+    
+    @FXML TextField name;
+    @FXML TextField username;
+    @FXML PasswordField password;
+    
+    @FXML Button submit;
+    @FXML Button back;
+    
+    @FXML Label usernameNotification;
+    @FXML Label passwordNotification;
+    @FXML Label dateofbirthNotification;
+    @FXML Label sexNotification;
+    @FXML Label countryNotification;
+    @FXML Label termsandconditionsNotification;
+    
+    private String nameText, usernameText, passwordText, dateofbirthText, sexText, countryText, aboutText;
+    private boolean sexChecked = false, termsChecked = false;
+    
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) 
+    {
+        // TODO
+        try
+        {            
+            MusicLibrary.getInstance().setGetScreenProperty(anchorPaneSignup, returnContainer);
+            
+            Rectangle2D screenRect = returnContainer.getScreenRect();
+            
+            ImageView backgroundImgView = new ImageView();
+            MusicLibrary.getInstance().addImage("resources/images/signup.png",backgroundImgView,screenRect,0,0);
+
+            anchorPaneSignup.getChildren().add(0,backgroundImgView);
+        }
+        catch(Exception e)
+        {
+            System.err.println("Initialize exception: ");
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    public void passwordTextInserted(KeyEvent ev)
+    {       
+        if(password.getText().length()<6)
+        {
+            passwordNotification.setText("Password must be atleast six characters");
+        }
+        else
+        {
+            passwordNotification.setText("");
+        }
+    }
+    
+    @FXML
+    public void passwordTextDeleted(KeyEvent ev)
+    {       
+        if(password.getText().length()<6)
+        {
+            passwordNotification.setText("Password must be atleast six characters");
+        }
+        else
+        {
+            passwordNotification.setText("");
+        }
+    }
+    
+    @FXML 
+    public void maleRadioClicked()
+    {
+        sexText = "MALE";
+    }
+    
+    @FXML
+    public void femaleRadioClicked()
+    {
+        sexText = "FEMALE";
+    }
+    
+    @FXML
+    public void submitClicked(MouseEvent ev)
+    {
+        
+    }
+    
+    @FXML
+    public void submitPressed(KeyEvent ev)
+    {
+        
+    }
+   
+    @FXML
+    public void backClicked(MouseEvent ev)
+    {
+        MusicLibrary.getInstance().loadPage("Login");
+    }
+    
+    @FXML
+    public void backPressed(KeyEvent ev)
+    {
+        if(ev.getCode().toString().equals("ENTER"))
+        {
+        } else {
+            MusicLibrary.getInstance().loadPage("Login");
+        }
+    }
+}

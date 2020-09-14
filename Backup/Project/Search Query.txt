@@ -1,0 +1,18 @@
+Search by songname
+
+select s.songname Name,s.length Length,a.nameofartist Artist,al.nameofalbum Album
+from songtable s,artisttable a,albumtable al
+where s.songname='One Step Closer' and s.artistid=a.artistid and s.songid=al.albumid and al.artistid=a.artistid;
+
+
+Search by album name
+
+select s.songname,s.length,a.nameofartist
+from songtable s,artisttable a, albumtable al
+where al.nameofalbum='Meteora' and al.artistid=a.artistid and s.artistid=al.artistid and s.artistid=a.artistid;
+
+Search by artistname
+
+select s.songname Name,s.length Length,al.nameofalbum Album
+from songtable s,artisttable a,albumtable al
+where a.nameofartist='Lifehouse' and a.artistid=al.artistid and a.artistid=s.artistid and s.albumid=al.albumid;

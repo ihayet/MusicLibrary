@@ -1,0 +1,64 @@
+Filling up current recommendation with songs of similar genre from the insertion into currentPlaylist:
+----------------------------------------------------------------------------------------------------------------
+
+create or replace trigger recommendationTrigger
+after insert on currentplaylist
+for each row
+declare
+	cursor cursor_recommendation is select artistid,albumid,songid from songtable where songtable.genre=(select genre from songtable where songid=:new.songid and artistid=:new.artistid and albumid=:new.albumid);
+begin
+	delete from currentrecommendation;
+
+	for rec_song in cursor_recommendation
+	loop
+		insert into currentrecommendation values(rec_song.artistid,rec_song.albumid,rec_song.songid);
+	end loop;
+end;
+/
+
+PlaylistID Increment for each user:
+------------------------------------------
+
+create or replace trigger playlistIncrement
+before insert on playlist
+for each row
+declare
+	pID playlist.playlistID%TYPE;
+	pCount number(4,0);
+begin
+	select count(playlistID) into pCount from playlist where userID=:new.userID;
+	
+	if (pCount=0) then
+		pID:=0;
+	else
+		select max(playlistID) into pID from playlist where userID=:new.userID;
+	end if;
+
+	:new.playlistID:=pID+1;
+end;
+/
+
+Cascade Update playlist to pcontainss:
+-------------------------------------------
+
+create or replace trigger playlistCascadeDelete
+before update on playlist
+for each row
+declare
+begin
+	update pcontainss set playlistID=:new.playlistID where userID=:new.userID and playlistID=:old.playlistID;
+end;
+/
+
+Song Priority Update upon Insertion into playlist:
+-----------------------------------------------------
+
+create or replace trigger priorityUpdate
+before insert on currentplaylist
+for each row
+declare
+begin
+	update songtable set priority=priority+1 where songid=:new.songid and albumid=:new.albumid and artistid=:new.artistid;
+end;
+/
+

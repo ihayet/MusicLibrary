@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane fx:id="anchorPaneLogin" prefHeight="750.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="musiclibrary.LoginPageFXMLController">
+    <children>
+        <TextField fx:id="username" alignment="CENTER" promptText="username" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow color="#00000080" />
+         </effect></TextField>
+        <PasswordField fx:id="password" alignment="CENTER" promptText="password" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow color="#00000080" />
+         </effect></PasswordField>
+      <Label fx:id="notification" textFill="RED" />
+      <Button fx:id="login" mnemonicParsing="false" text="Login" onMouseClicked="#loginClicked" onKeyPressed="#loginPressed"/>
+      <Button fx:id="signup" mnemonicParsing="false" text="Signup" onMouseClicked="#signupClicked" onKeyPressed="#signupPressed"/>
+    </children>
+</AnchorPane>

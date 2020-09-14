@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="anchorPaneSignup" fx:id="anchorPaneSignup" prefHeight="750.0" prefWidth="1400.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="musiclibrary.SignupPageFXMLController">
+   <children>
+      <Label fx:id="signupLabel" layoutX="71.0" layoutY="14.0" prefHeight="85.0" prefWidth="263.0" text="Sign Up" textFill="WHITE">
+         <font>
+            <Font name="SketchFlow Print" size="64.0" />
+         </font>
+      </Label>
+      <Button fx:id="submit" layoutX="70.0" layoutY="627.0" onKeyPressed="#submitPressed" onMouseClicked="#submitClicked" prefHeight="50" prefWidth="186.0" text="Submit">
+         <font>
+            <Font name="SketchFlow Print" size="24.0" />
+         </font>
+      </Button>
+       <Button fx:id="back" layoutX="270.0" layoutY="627.0" onKeyPressed="#backPressed" onMouseClicked="#backClicked" prefHeight="50" prefWidth="186.0" text="Back">
+         <font>
+            <Font name="SketchFlow Print" size="24.0" />
+         </font>
+      </Button>
+      <TextField fx:id="name" layoutX="71.0" layoutY="125.0" onKeyPressed="#nameTextPressed" onKeyReleased="#nameTextReleased" prefHeight="48.0" prefWidth="385.0" promptText="name">
+         <font>
+            <Font name="SketchFlow Print" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="username" layoutX="70.0" layoutY="179.0" onKeyPressed="#usernameTextPressed" onKeyReleased="#usernameTextReleased" prefHeight="48.0" prefWidth="385.0" promptText="username">
+         <font>
+            <Font name="SketchFlow Print" size="24.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="password" layoutX="71.0" layoutY="233.0" onKeyPressed="#passwordTextPressed" onKeyReleased="#passwordTextReleased" prefHeight="48.0" prefWidth="385.0" promptText="password">
+         <font>
+            <Font name="SketchFlow Print" size="24.0" />
+         </font>
+      </PasswordField>
+      <Label fx:id="dateofbirthlabel" layoutX="71.0" layoutY="287.0" prefHeight="48.0" prefWidth="166.0" text="Date Of Birth" textFill="WHITE">
+         <font>
+            <Font name="SketchFlow Print" size="24.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dateofbirth" layoutX="248.0" layoutY="287.0" onAction="#dateofbirthAction" prefHeight="48.0" prefWidth="209.0" />
+      <fx:define>
+          <ToggleGroup fx:id="toggleGroup" />
+      </fx:define>
+      <RadioButton fx:id="maleRadioButton" layoutX="133.0" layoutY="357.0" mnemonicParsing="false" onAction="#maleRadioClicked" text="Male" textFill="WHITE">
+         <font>
+            <Font name="SketchFlow Print" size="24.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="toggleGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="femaleRadioButton" layoutX="319.0" layoutY="357.0" mnemonicParsing="false" onAction="#femaleRadioClicked" text="Female" textFill="WHITE" toggleGroup="$toggleGroup">
+         <font>
+            <Font name="SketchFlow Print" size="24.0" />
+         </font>
+      </RadioButton>
+      <ImageView fitHeight="48.0" fitWidth="46.0" layoutX="93.0" layoutY="341.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/man-icon-hi.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="48.0" fitWidth="46.0" layoutX="281.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/pink-female-symbol-hi.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="country" layoutX="71.0" layoutY="400.0" onKeyPressed="#countryTextPressed" onKeyReleased="#countryTextReleased" prefHeight="48.0" prefWidth="385.0" promptText="country">
+         <font>
+            <Font name="SketchFlow Print" size="24.0" />
+         </font>
+      </TextField>
+      <TextArea fx:id="about" layoutX="71.0" layoutY="454.0" prefHeight="136.0" prefWidth="385.0" promptText="about" wrapText="true">
+         <font>
+            <Font name="SketchFlow Print" size="24.0" />
+         </font>
+      </TextArea>
+      <Label fx:id="nameNotification" layoutX="471.0" layoutY="133.0" prefHeight="32.0" prefWidth="186.0" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="SketchFlow Print" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="usernameNotification" layoutX="471.0" layoutY="187.0" prefHeight="32.0" prefWidth="186.0" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="SketchFlow Print" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="passwordNotification" layoutX="471.0" layoutY="239.0" prefHeight="32.0" prefWidth="186.0" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="SketchFlow Print" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="dateofbirthNotification" layoutX="471.0" layoutY="293.0" prefHeight="32.0" prefWidth="186.0" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="SketchFlow Print" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="sexNotification" layoutX="471.0" layoutY="355.0" prefHeight="32.0" prefWidth="186.0" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="SketchFlow Print" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="countryNotification" layoutX="471.0" layoutY="406.0" prefHeight="32.0" prefWidth="186.0" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="SketchFlow Print" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="termsandconditionsNotification" layoutX="471.0" layoutY="591.0" prefHeight="32.0" prefWidth="186.0" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="SketchFlow Print" size="12.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="termsandconditions" layoutX="72.0" layoutY="597.0" mnemonicParsing="true" onAction="#termsandconditionsClicked" text="I accept the" textFill="WHITE">
+         <font>
+            <Font name="SketchFlow Print" size="14.0" />
+         </font>
+      </CheckBox>
+      <Label fx:id="termsandconditionsHyperlink" layoutX="186.0" layoutY="591.0" prefHeight="32.0" prefWidth="166.0" text="terms and conditions" textFill="WHITE" underline="true" wrapText="true">
+         <font>
+            <Font name="SketchFlow Print" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

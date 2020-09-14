@@ -1,0 +1,3 @@
+INSERT INTO ARTISTTABLE VALUES(1,'Linkin Park','Linkin Park is a rock band','Agoura Hills, California, USA','Alternative rock, nu metal','1996-present');
+INSERT INTO ARTISTTABLE VALUES(2,'Nickelback','Nickelback is a rock band','Hanna, Alberta, Canada','Alternative rock, pop rock',' 1995-present');
+INSERT INTO ARTISTTABLE VALUES(3,'Lifehouse','Lifehouse is a rock band','Los Angeles, California, USA','Alternative rock, post-grunge','1999-present');

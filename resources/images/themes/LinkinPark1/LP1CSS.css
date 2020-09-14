@@ -1,0 +1,65 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 30, 2015, 2:50:45 AM
+    Author     : ISHRAK-Ultra
+*/
+
+
+.tab-pane .tab-header-area .tab-header-background
+
+{
+    -fx-opacity: 0; 
+}
+
+.tab-pane .tab
+{    -fx-padding: 10px; }
+
+.tab-pane
+
+{
+    -fx-tab-min-width: 150px; }
+
+
+
+
+/*Change the background color*/
+.tab-pane .tab
+
+{
+    -fx-background-color: #8A5C2E;
+}
+
+
+/*Change the background color*/	
+
+.tab-pane .tab:selected
+
+{
+    -fx-background-color: #3c3c3c;
+}
+
+
+
+/*Change the text fill*/
+.tab .tab-label
+
+{
+    -fx-alignment: CENTER;    -fx-text-fill: black;
+    -fx-font-size: 16px;
+    -fx-font-family: "SketchFlow Print";
+ -fx-font-weight: bold; }
+
+
+/*Change the text fill*/
+
+
+.tab:selected .tab-label
+
+{
+    -fx-alignment: CENTER;
+    -fx-text-fill: #96b946;
+}
